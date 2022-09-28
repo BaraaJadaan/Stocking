@@ -17,7 +17,7 @@ const App = () => {
     <>
     <BrowserRouter>
       <Main/>
-    <Routes>
+    <Routes> 
       <Route exact path="/daily" element={<Daily/>} />
       <Route exact path="/weekly" element={<Weekly/>} />
       <Route exact path="/monthly" element={<Monthly/>} />
