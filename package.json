@@ -19,11 +19,12 @@
     "recharts": "^2.1.14",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://baraajadaan.github.io/Stocking",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2"
   }
