@@ -1,0 +1,52 @@
+.news{
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* enables momentum-scrolling on iOS */
+    position: absolute;
+    top: 9rem;
+    left: 65rem;
+    right: 0;
+    bottom: 0;
+}
+.head{
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -50%;
+        translate: -50% -50%;
+        width: 12rem;
+        border-bottom: 2px solid #000;
+      }
+    
+}
+
+.card{
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    
+    &__shape {
+        width: 8rem;
+        height: 8rem;
+        // float: left;
+        // shape-outside: circle(50% at 50% 50%);
+        transform: translateX(2rem);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+    &__img {
+        height: 100%;
+        transform: translateX(-3rem) scale(1.2);
+        backface-visibility: hidden;
+        transition: all .5s;
+        
+    }
+    &__link,
+    &__link:link,
+    &__link:visited{
+        text-decoration: none ;
+    }
+}

@@ -1,0 +1,32 @@
+.nav{
+    background-color: darkblue;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+      &__search{
+      background-color: white;
+      translate: 4rem 0;
+  }
+      &__logo{
+        color:white;
+      }
+  }
+  
+//   .v-text-field .v-input__details{
+//     padding: 0;
+//   }
+//   .v-input__details{
+//     grid-area:auto; 
+//   }
+//   .nav__search .v-label {
+//     font-size: 1.5rem;
+//   }
+  
+  .Periods li{
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 1.5rem;
+    color:white;
+  }
