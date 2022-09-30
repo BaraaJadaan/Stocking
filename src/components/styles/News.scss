@@ -2,15 +2,23 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch; /* enables momentum-scrolling on iOS */
     position: absolute;
-    top: 9rem;
-    left: 65rem;
+    top: 22%;
+    left: 75%;
     right: 0;
     bottom: 0;
+
+    // &-margin:not(:first-child) {
+    //     margin-bottom: 2rem;
+    // }
 }
 .head{
     text-align: center;
     z-index: 1;
     position: relative;
+    background-image: linear-gradient(to right, rgb(42, 186, 186), rgb(54, 19, 80));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     &:before {
         content: "";
         position: absolute;
@@ -18,7 +26,8 @@
         bottom: -50%;
         translate: -50% -50%;
         width: 12rem;
-        border-bottom: 2px solid #000;
+        border-bottom: 1px solid indigo;
+       
       }
     
 }
@@ -26,24 +35,35 @@
 .card{
     padding: 0 1rem;
     margin-bottom: 1rem;
-    
+    background-color: #222;
     &__shape {
         width: 8rem;
         height: 8rem;
         // float: left;
         // shape-outside: circle(50% at 50% 50%);
-        transform: translateX(2rem);
+        left: 35%;
+        top: 30%;
+        translate: -50% 0;
         position: relative;
         overflow: hidden;
         border-radius: 50%;
     }
     &__img {
         height: 100%;
-        transform: translateX(-3rem) scale(1.2);
-        backface-visibility: hidden;
-        transition: all .5s;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        position: absolute;
         
     }
+    &__title{
+        text-align: center;
+    }
+
+    &__summary{
+        text-align: center;
+    }
+
     &__link,
     &__link:link,
     &__link:visited{

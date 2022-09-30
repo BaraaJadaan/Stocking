@@ -1,32 +1,24 @@
 .nav{
-    background-color: darkblue;
+    background-image: linear-gradient(to right, rgba(teal, 0.8), rgba(indigo, 0.6));
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
       &__search{
-      background-color: white;
-      translate: 4rem 0;
-  }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      translate: -50% -50%;
+      border-radius: 30%;
+      }
       &__logo{
         color:white;
       }
   }
-  
-//   .v-text-field .v-input__details{
-//     padding: 0;
-//   }
-//   .v-input__details{
-//     grid-area:auto; 
-//   }
-//   .nav__search .v-label {
-//     font-size: 1.5rem;
-//   }
-  
-  .Periods li{
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 1.5rem;
-    color:white;
+	.MuiAutocomplete-inputRoot{
+    background-color: white;
+  }
+  .MuiAutocomplete-noOptions{
+    background-color: white;
   }
