@@ -10,12 +10,12 @@ import {setSearch} from '../redux/reducers'
 export default function Search () {
     let temp = [];
     // let value = '';
-    const [matches, setMatches] = useState('');
-    const [keyword, setKeyword] = useState();
+    const [matches, setMatches] = useState([]);
+    const [keyword, setKeyword] = useState('');
     const dispatch = useDispatch();
     const FetchSearch = async () => {
         await axios
-          .get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=X7Z2WNZQM80JPRHS`)
+          .get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=9H2WKPRIVEUYXYGL`)
           .then(({ data }) => {
             if(keyword){
             for(let i = 0; i<data.bestMatches.length; i++)
@@ -41,6 +41,7 @@ export default function Search () {
             options={matches}
             onChange={(event, newValue) => {
               dispatch(setSearch(newValue["1. symbol"]));
+              // console.log(newValue["1. symbol"])
               }}
             inputValue={keyword}
             onInputChange={(event, newInputValue) => {setKeyword(newInputValue)}}
@@ -59,6 +60,7 @@ export default function Search () {
             sx={{ width: '60%' }}
             >
         </Autocomplete> 
+        
     </>
   )
 }

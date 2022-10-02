@@ -14,26 +14,28 @@ import {
   import './styles/Chart.scss';
 export default function Chart() {
   
-    const temp = [];
-    // let temp1 = [];
-    const [chart, setChart] = useState('');
-    // const [chart1, setChart1] = useState('');
+    const [chart, setChart] = useState([]);
     const {search} = useSelector((state) => state.searchValue);
+    const temp = []
+    const [note, setNote] = useState('');
     
       const fetchChart = async () => {
         await axios
-          .get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${search}&outputsize=compact&apikey=2J87TY3KKGLCJ9OG`)
+          .get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${search}&apikey=X7Z2WNZQM80JPRHS`)
           .then(({ data }) => {
-            
-            for (const [key,value] of Object.entries(data["Monthly Time Series"])) {
-                temp.push(value);
+            if(data["Monthly Time Series"]){
+              for (const prop in data["Monthly Time Series"]) {
+                temp.push(data["Monthly Time Series"][prop]);
               }
-            // for (const [key, value] of Object.entries(data["Monthly Time Series"])) {
-            //     temp1.push(value["4. close"]);
-            //   }
-              setChart(temp)
-              // setChart1(temp1)
-              // console.log(search);
+            }
+            // for (const [key,value] of Object.entries(data["Monthly Time Series"])) {
+            //   temp.push(value);
+            // }
+            else if(data.Note){
+              setNote(data.Note)
+            }
+            
+            setChart(temp)
           })
       }; 
       
@@ -43,6 +45,9 @@ export default function Chart() {
     
   return (
     <div className="chart">
+      {note&&<div>
+        <p style={{color:'red', textAlign:'center', margin:'0 5px'}}>{note}</p>
+        </div>}
       <ResponsiveContainer width="100%" height={550}>
           <AreaChart
             width={500}
@@ -64,8 +69,6 @@ export default function Chart() {
             <Brush />
           </AreaChart>
         </ResponsiveContainer>
-     {/* {console.log(search)}
-     {console.log(chart)} */}
     </div>
   )
 }

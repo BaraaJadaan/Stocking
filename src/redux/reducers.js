@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const searchSlice = createSlice({
   name: 'searchValue',
   initialState:{
-    search: 'K'
-  },
+    search: '',
+  }, 
   reducers: {
     setSearch: (state, action) => {
       state.search = action.payload
@@ -12,6 +12,6 @@ export const searchSlice = createSlice({
   },
 })
 
-export const { setSearch } = searchSlice.actions
+export const { setSearch} = searchSlice.actions
 
 export default searchSlice.reducer

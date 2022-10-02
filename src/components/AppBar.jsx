@@ -6,8 +6,8 @@ export default function AppBar() {
   return (
     <>
         <header>
-        <nav class="nav">
-            <h2 class="nav__logo">Stocking</h2>
+        <nav className="nav">
+            <h2 className="nav__logo">Stocking</h2>
             <Search/>
         </nav>
         </header>

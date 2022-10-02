@@ -7,10 +7,10 @@ export default function Main() {
     <div>
         <AppBar/>
         <Grid container >
-          <Grid xs={9}>
+          <Grid item xs={9}>
             <Chart/>
           </Grid>
-          <Grid xs={3}>
+          <Grid item xs={3}>
             <News/>
           </Grid>
         </Grid>
