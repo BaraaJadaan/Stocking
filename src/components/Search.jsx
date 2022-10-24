@@ -1,13 +1,16 @@
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { createFilterOptions } from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import axios from 'axios';
+import stocks from "../db/stocks.json";
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearch } from '../redux/reducers'
 
 export default function Search() {
+  const OPTIONS_LIMIT = 10;
+  const defaultFilterOptions = createFilterOptions();
   let bestMatches = [];
   const [matches, setMatches] = useState([]);
   const [keyword, setKeyword] = useState('');
@@ -15,22 +18,35 @@ export default function Search() {
   const [textFieldLabel, setTextFieldLabel] = useState('Search');
   const dispatch = useDispatch();
 
-  const FetchSearch = async () => {
-    await axios
-      .get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=9H2WKPRIVEUYXYGL`)
-      .then(({ data }) => {
-        if ('bestMatches' in data) {
-          for (let i = 0; i < data.bestMatches.length; i++) {
-            bestMatches.push(data.bestMatches[i])
-          }
-          setMatches(bestMatches);
-        }
-      })
+  const filterOptions = (options, state) => {
+    return defaultFilterOptions(options, state).slice(0, OPTIONS_LIMIT);
   };
 
-  useEffect(() => {
-    FetchSearch();
-  }, [keyword]);
+  // const FetchSearch = async () => {
+  //   await axios
+  //     .get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=9H2WKPRIVEUYXYGL`)
+  //     .then(({ data }) => {
+  //       if ('bestMatches' in data) {
+  //         for (let i = 0; i < data.bestMatches.length; i++) {
+  //           bestMatches.push(data.bestMatches[i])
+  //         }
+  //         setMatches(bestMatches);
+  //       }
+  //     })
+  // };
+  // const FetchSearch = async () => {
+  //   await axios
+  //     .get({stocks})
+  //     .then(({ data }) => {  
+  //         bestMatches.push(Object.entries(data));
+  //         setMatches(bestMatches);
+  //       }
+  //     )
+  // };
+
+  // useEffect(() => {
+  //   FetchSearch();
+  // }, [keyword]);
 
   return (
     <>
@@ -39,13 +55,14 @@ export default function Search() {
         PaperComponent={({ children }) => (
           <Paper style={{ background: '#02a4a4', color: 'white' }}>{children}</Paper>
         )}
+        filterOptions={filterOptions}
         disablePortal
         id='stock_search'
-        getOptionLabel={(matches) => `${matches["1. symbol"]}`}
-        options={matches}
+        getOptionLabel={(stocks) => `${stocks.symbol}`}
+        options={stocks}
         onChange={(event, newValue) => {
-          if (newValue && newValue["1. symbol"]) {
-            dispatch(setSearch(newValue["1. symbol"]));
+          if (newValue && newValue.symbol) {
+            dispatch(setSearch(newValue.symbol));
             // console.log(newValue["1. symbol"])
           }
         }}
@@ -57,13 +74,13 @@ export default function Search() {
           }
         }}
         isOptionEqualToValue={(option, value) =>
-          option["1. symbol"] === value["1. symbol"]
+          option.symbol === value.symbol
         }
         noOptionsText={"Please Make Sure That The Stock Name is Valid"}
-        renderOption={(props, matches) => (
+        renderOption={(props, stocks) => (
           <Box style={{ display: 'flex', justifyContent: 'space-between' }} component="li" {...props} >
-            <div>{matches["1. symbol"]}</div>
-            <div>{matches["2. name"]}</div>
+            <div>{stocks.symbol}</div>
+            <div>{stocks.name}</div>
           </Box>
         )}
         style={{ backgroundColor: "pink !important" }}

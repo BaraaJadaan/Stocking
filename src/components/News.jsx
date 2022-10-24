@@ -13,7 +13,7 @@ const News = () => {
 
   const fetchNews = async () => {
     await axios
-      .get('https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=FOREX:USD&sort=latest&time_from=20220920T0130&limit=50&apikey=2J87TY3KKGLCJ9OG')
+      .get('https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=FOREX:USD&sort=latest&time_from=20220920T0130&limit=0&apikey=2J87TY3KKGLCJ9OG')
       .then(({ data }) => {
 
         for (let i = 0; i < data.feed.length; i++) {
@@ -41,13 +41,13 @@ const News = () => {
         {React.Children.toArray(
           news.map((item) => (
             <a className='card__link' href={item.url}>
-              <Card sx={{ boxShadow: 4 }} className='card'>
+              <Card sx={{ boxShadow: 4}} className='card'>
                 <figure className='card__shape'>
                   <img className='card__img' src={item.banner_image} alt="Banner" />
                 </figure>
 
-                <h3 className='card__title'>{item.title}</h3>
-                <p className='card__summary'>{trim(item.summary, 150)}</p>
+                <h3 className='card__title'>{trim(item.title, 60)}</h3>
+                <p className='card__summary'>{trim(item.summary, 100)}</p>
               </Card>
             </a>
           )))}
