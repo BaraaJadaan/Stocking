@@ -14,7 +14,7 @@ const News = () => {
 
   const fetchNews = async () => {
     await axios
-      .get('https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=FOREX:USD&sort=latest&time_from=20220920T0130&limit=0&apikey=2J87TY3KKGLCJ9OG')
+      .get(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=FOREX:USD&sort=latest&time_from=20220920T0130&limit=0&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`)
       .then(({ data }) => {
 
         for (let i = 0; i < data.feed.length; i++) {

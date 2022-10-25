@@ -27,13 +27,16 @@
     -webkit-background-clip: text;
     color: transparent;
     &:before {
-        content: "";
+        
+        @media only screen and (min-width: 900px) {
+            content: "";
         position: absolute;
         left: 50%;
         bottom: -50%;
         translate: -50% -50%;
         width: 12rem;
         border-bottom: 1px solid indigo;
+          }
        
       }
       @media only screen and (min-width: 680px) and (max-width: 900px) {
@@ -53,6 +56,7 @@
     &__shape {
         float: left;
         shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
         width: 8rem;
         height: 8rem;
         display: block;

@@ -24,7 +24,7 @@ export default function Search() {
 
   // const FetchSearch = async () => {
   //   await axios
-  //     .get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=9H2WKPRIVEUYXYGL`)
+  //     .get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`)
   //     .then(({ data }) => {
   //       if ('bestMatches' in data) {
   //         for (let i = 0; i < data.bestMatches.length; i++) {
@@ -33,6 +33,15 @@ export default function Search() {
   //         setMatches(bestMatches);
   //       }
   //     })
+  // };
+  // const FetchSearch = async () => {
+  //   await axios
+  //     .get({stocks})
+  //     .then(({ data }) => {  
+  //         bestMatches.push(Object.entries(data));
+  //         setMatches(bestMatches);
+  //       }
+  //     )
   // };
 
   // useEffect(() => {
@@ -80,6 +89,7 @@ export default function Search() {
           onFocus={() => setTextFieldLabel("")}
           onBlur={() => setTextFieldLabel("Search")}
         />}
+        // sx={{ width: '30%' }}
       >
       </Autocomplete>
 

@@ -22,7 +22,7 @@ export default function Chart() {
 
   const fetchChart = async () => {
     await axios
-      .get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${search}&apikey=X7Z2WNZQM80JPRHS`)
+      .get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${search}&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`)
       .then(({ data }) => {
         if (data["Monthly Time Series"]) {
           for (const key in data["Monthly Time Series"]) {
