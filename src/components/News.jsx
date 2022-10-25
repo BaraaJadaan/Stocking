@@ -2,6 +2,7 @@ import './styles/News.scss';
 import React, { useState, useEffect, } from "react";
 import axios from "axios";
 import { Card } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -43,7 +44,7 @@ const News = () => {
             <a className='card__link' href={item.url}>
               <Card sx={{ boxShadow: 4}} className='card'>
                 <figure className='card__shape'>
-                  <img className='card__img' src={item.banner_image} alt="Banner" />
+                  <Avatar className='card__img' sx={{ width: 100, height: 100 }} src={item.banner_image} alt={item.title}/>
                 </figure>
 
                 <h3 className='card__title'>{trim(item.title, 60)}</h3>

@@ -50,7 +50,7 @@ export default function Chart() {
       {note && <div>
         <p style={{ color: 'red', textAlign: 'center', margin: '0 5px' }}>{note}</p>
       </div>}
-      <ResponsiveContainer width="100%" height={650}>
+      <ResponsiveContainer className="chart" width="100%" height={600}>
         <AreaChart
           width={500}
           height={200}

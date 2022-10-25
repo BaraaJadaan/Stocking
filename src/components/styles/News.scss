@@ -1,14 +1,19 @@
 .news{
+      @media screen and (min-width: 680px) and (max-width: 900px) { 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% 5%;
+    }
     @media only screen and (min-width: 900px) {
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch; /* enables momentum-scrolling on iOS */
+        -webkit-overflow-scrolling: touch;
         position: absolute;
-        top: 22%;
+        top: 19%;
         left: 75%;
         right: 0;
         bottom: 0;
       }
-    
     &-margin:not(:first-child) {
         margin-bottom: 2rem;
     }
@@ -31,6 +36,12 @@
         border-bottom: 1px solid indigo;
        
       }
+      @media only screen and (min-width: 680px) and (max-width: 900px) {
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        translate: -50% -50%;
+      }
     
 }
 
@@ -38,24 +49,10 @@
     padding: 0 1rem;
     margin-bottom: 1rem;
     background-color: #222;
-    @media only screen and (max-width: 900px) {
-        width: 60%;
-        text-align: center;
-        position: relative;
-        left: 17%;
-      }
-    // width: 15rem;
+    
     &__shape {
-        @media only screen and (min-width: 900px) {
-            // left: 27%;
-          }
-          @media only screen and (max-width: 899px) {
-            float: left;
-            shape-outside: circle(50% at 50% 50%);
-            // translate: -50% 0%;
-        }
         float: left;
-            shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
         width: 8rem;
         height: 8rem;
         display: block;
@@ -84,5 +81,6 @@
     &__link:link,
     &__link:visited{
         text-decoration: none ;
+        
     }
 }
