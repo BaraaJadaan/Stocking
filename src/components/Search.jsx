@@ -34,15 +34,6 @@ export default function Search() {
   //       }
   //     })
   // };
-  // const FetchSearch = async () => {
-  //   await axios
-  //     .get({stocks})
-  //     .then(({ data }) => {  
-  //         bestMatches.push(Object.entries(data));
-  //         setMatches(bestMatches);
-  //       }
-  //     )
-  // };
 
   // useEffect(() => {
   //   FetchSearch();
@@ -89,7 +80,6 @@ export default function Search() {
           onFocus={() => setTextFieldLabel("")}
           onBlur={() => setTextFieldLabel("Search")}
         />}
-        sx={{ width: '60%' }}
       >
       </Autocomplete>
 
