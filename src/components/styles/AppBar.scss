@@ -2,22 +2,12 @@
     background-image: linear-gradient(to right, rgba(teal, 0.8), rgba(indigo, 0.6));
     padding: 0 1.5rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: relative;
     
       &__search{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-      translate: -50% -50%;
+        width: 50%;
+      margin: 0 auto;
       border-radius: 30%;
-      @media only screen and (max-width: 550px) {
-      margin-left: 3rem;
-      }
-      @media only screen and (max-width: 350px) {
-      margin-left: 5rem;
-      }
       }
       &__logo{
         color:white;
